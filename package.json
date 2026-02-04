@@ -1,0 +1,31 @@
+{
+  "name": "practical-tools-tips",
+  "version": "1.1.0",
+  "description": "实用工具与技巧分享网站",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ./",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/practical-tools-tips.git"
+  },
+  "keywords": [
+    "tools",
+    "tips",
+    "productivity",
+    "ai",
+    "utilities"
+  ],
+  "author": "实用工具与技巧分享",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/practical-tools-tips/issues"
+  },
+  "homepage": "https://github.com/your-username/practical-tools-tips#readme",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
