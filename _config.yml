@@ -1,0 +1,13 @@
+title: 实用工具与技巧分享
+description: 发现并分享有价值的工具和技巧
+author: Web Admin
+email: contact@example.com
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Custom variables
+version: 1.0.0
