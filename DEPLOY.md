@@ -1,42 +1,34 @@
-# 部署说明
+# 实用工具与技巧分享网站
+
+这个网站已经过优化，具有改进的样式、响应式设计和内容结构。
+
+## 部署到GitHub Pages
 
 要将此网站部署到GitHub Pages，请按照以下步骤操作：
 
-## 方法一：手动部署到GitHub Pages
-
-1. 创建一个新的GitHub仓库（例如：`my-practical-tips`）
-2. 在本地终端中运行以下命令：
+1. 在GitHub上创建一个新的仓库，名称为 `practical-tools-tips`
+2. 将您的GitHub用户名设置为环境变量
+3. 运行部署脚本：
 
 ```bash
-cd my-website
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-git branch -M main
-git push -u origin main
+./deploy_to_github.sh <your-github-username>
 ```
 
-3. 在GitHub仓库中启用GitHub Pages：
-   - 进入仓库的Settings选项卡
-   - 找到Pages部分
-   - 选择源为 "Deploy from a branch"
-   - 选择分支 "main" 和文件夹 "/root"
-   - 点击Save保存
+或者直接运行：
 
-## 方法二：使用GitHub Actions自动部署
+```bash
+chmod +x deploy_to_github.sh
+./deploy_to_github.sh <your-github-username>
+```
 
-本项目已包含GitHub Actions部署工作流文件，位于 `.github/workflows/deploy.yml`。
+4. 访问 `https://<your-github-username>.github.io/practical-tools-tips` 查看您的网站
 
-要使用此功能：
-1. 将代码推送到GitHub仓库
-2. 在仓库的Settings > Secrets and variables > Actions中添加以下变量（如果需要）：
-   - `GITHUB_TOKEN` (通常已自动提供)
+## 本地查看
 
-工作流将在每次推送到main分支时自动部署到GitHub Pages。
+您可以使用Python内置服务器在本地预览网站：
 
-## 验证部署
+```bash
+python -m http.server 8000
+```
 
-部署完成后，您的网站将在以下地址可用：
-`https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME/`
-
-## 自定义域名（可选）
-
-如果您有自己的域名，可以在仓库的Settings > Pages部分设置自定义域名。
+然后在浏览器中访问 `http://localhost:8000`
