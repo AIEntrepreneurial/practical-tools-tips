@@ -1,7 +1,7 @@
-title: 实用工具与技巧分享
-description: 发现并分享有价值的工具和技巧
-author: Web Admin
-email: contact@example.com
+title: AI创业指南与资源分享
+description: 探索人工智能时代的创业机遇与挑战
+author: AI Entrepreneur
+email: ai-entrepreneur@example.com
 
 # Build settings
 markdown: kramdown
@@ -19,7 +19,7 @@ twitter:
   username: your_twitter_username
   card: summary_large_image
 social:
-  name: 实用工具与技巧分享
+  name: AI创业指南与资源分享
   links:
     - https://github.com/your-username
 
