@@ -1,64 +1,42 @@
-# 部署指南
+# 部署说明
 
-## 部署到 GitHub Pages
+要将此网站部署到GitHub Pages，请按照以下步骤操作：
 
-### 第一步：初始化 Git 仓库
+## 方法一：手动部署到GitHub Pages
 
-如果您还没有初始化 Git 仓库，请执行以下命令：
+1. 创建一个新的GitHub仓库（例如：`my-practical-tips`）
+2. 在本地终端中运行以下命令：
 
 ```bash
 cd my-website
-git init
-git remote add origin https://github.com/[YOUR_USERNAME]/[YOUR_REPOSITORY].git
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+git branch -M main
+git push -u origin main
 ```
 
-### 第二步：配置 GitHub Pages
+3. 在GitHub仓库中启用GitHub Pages：
+   - 进入仓库的Settings选项卡
+   - 找到Pages部分
+   - 选择源为 "Deploy from a branch"
+   - 选择分支 "main" 和文件夹 "/root"
+   - 点击Save保存
 
-1. 在 GitHub 上创建一个新的仓库
-2. 将本地代码推送到该仓库
-3. 在仓库设置中启用 GitHub Pages：
-   - 进入 Settings > Pages
-   - 选择源码分支（通常是 main 或 master）
-   - 选择根目录 (/root) 作为源
+## 方法二：使用GitHub Actions自动部署
 
-### 第三步：部署代码
+本项目已包含GitHub Actions部署工作流文件，位于 `.github/workflows/deploy.yml`。
 
-#### Windows 用户
-双击运行 `deploy.bat` 文件
+要使用此功能：
+1. 将代码推送到GitHub仓库
+2. 在仓库的Settings > Secrets and variables > Actions中添加以下变量（如果需要）：
+   - `GITHUB_TOKEN` (通常已自动提供)
 
-#### macOS/Linux 用户
-运行以下命令：
-```bash
-chmod +x deploy.sh
-./deploy.sh
-```
+工作流将在每次推送到main分支时自动部署到GitHub Pages。
 
-### 第四步：验证部署
+## 验证部署
 
-访问 `https://[YOUR_USERNAME].github.io/[YOUR_REPOSITORY]` 查看网站
+部署完成后，您的网站将在以下地址可用：
+`https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME/`
 
-## 自动化部署
+## 自定义域名（可选）
 
-此项目已配置为使用 GitHub Actions 自动部署：
-
-1. 创建 `.github/workflows/deploy.yml` 文件
-2. 配置自动构建和部署流程
-3. 每次推送代码时会自动部署
-
-## 手动部署
-
-如果需要手动部署，只需运行：
-
-```bash
-npm run build  # 构建项目（如果有构建步骤）
-git add .
-git commit -m "Deploy updates"
-git push origin main
-```
-
-## 注意事项
-
-- 确保您的 GitHub 仓库设置为公开（如果是个人网站）
-- 检查 `_config.yml` 中的设置是否正确
-- 验证所有链接在部署后仍然有效
-- 测试响应式设计在不同设备上的显示效果
+如果您有自己的域名，可以在仓库的Settings > Pages部分设置自定义域名。

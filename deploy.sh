@@ -1,27 +1,34 @@
 #!/bin/bash
-# 部署脚本 - 用于将网站上传到GitHub Pages
+
+# 部署脚本 - 将网站部署到GitHub
+
+echo "正在准备部署网站..."
+echo
 
 # 检查是否已安装git
-if ! [ -x "$(command -v git)" ]; then
-  echo '错误: git 未安装.' >&2
-  exit 1
+if ! command -v git &> /dev/null; then
+    echo "错误: 未找到git。请先安装git。"
+    exit 1
 fi
 
-# 获取当前时间戳
-TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-
-# 提交更改
-echo "正在提交本地更改..."
-git add .
-git commit -m " feat: 优化网站样式和功能 $TIMESTAMP"
-
-# 推送到GitHub
-echo "正在推送到GitHub..."
-git push origin main
-
-# 如果这是第一次推送，可能需要设置上游分支
-if [ $? -ne 0 ]; then
-    git push --set-upstream origin main
+# 检查当前目录是否为git仓库
+if [ ! -d ".git" ]; then
+    echo "初始化git仓库..."
+    git init
+    git add .
+    git commit -m "Initial commit: Optimized practical tips website"
 fi
 
-echo "部署完成！"
+echo
+echo "请按照以下步骤完成部署："
+echo "1. 创建一个新的GitHub仓库 (例如：my-practical-tips)"
+echo "2. 将下面的命令复制到终端中执行："
+echo
+echo "   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git"
+echo "   git branch -M main"
+echo "   git push -u origin main"
+echo
+echo "3. 在GitHub上启用Pages功能"
+echo
+echo "更多详情请参阅 DEPLOY.md 文件"
+echo
